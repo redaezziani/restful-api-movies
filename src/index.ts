@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import compression from 'compression';
 import mongoose from 'mongoose';
+import router from './router';
  
 
 
@@ -29,6 +30,7 @@ mongoose.connect(MONGO_URL).then(() => {
     console.log(err);
 });
 
+app.use('/',router());
 
 
 
