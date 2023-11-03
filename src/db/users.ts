@@ -36,4 +36,12 @@ export const getUserByEmail = async (email:string) => User.findOne({email});
 
 export const getUserBySessionToken = async (sessionToken:string) => User.findOne({'authentication.sessionToken': sessionToken});
 
+export const getUserById= async (id:string) => User.findById(id);
+
+export const createUser = async (values:Record<string,any>) => new User(values).save().then((user:any) => user.toObject());
+
+export const deleteUserById = async (id:string) => User.findByIdAndDelete({_id:id});
+
+export const updateUserById = async (id:string, values:Record<string, any> ) =>User.findByIdAndUpdate(id , values);
+
     
