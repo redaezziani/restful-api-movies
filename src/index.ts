@@ -18,8 +18,10 @@ app.use(cors({
 app.use(compression());
 app.use(bodyParser.json());
 app.use(cookieParser());
- const MONGO_URL="mongodb+srv://klausdev9:Bnoc6UaFjnBAovY0@cluster0.xojivar.mongodb.net/?retryWrites=true&w=majority"
-
+import dotenv from 'dotenv';
+dotenv.config();
+ const MONGO_URL=process.env.MONGO_URL;
+ const PORT_NUMBER=process.env.PORT_NUMBER;
 const server = http.createServer(app);
 
 mongoose.Promise=Promise;
@@ -33,8 +35,6 @@ mongoose.connect(MONGO_URL).then(() => {
 app.use('/',router());
 
 
-
-
-server.listen(8080, () => {
-    console.log('Server is running on port 8080');
+server.listen(PORT_NUMBER, () => {
+    console.log('Server is running');
 });
