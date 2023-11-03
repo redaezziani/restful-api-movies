@@ -31,9 +31,7 @@ mongoose.connect(MONGO_URL).then(() => {
 ).catch(err => {
     console.log(err);
 });
-
 app.use('/',router());
-
 
 server.listen(PORT_NUMBER, () => {
     console.log('Server is running');

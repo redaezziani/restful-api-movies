@@ -7,7 +7,6 @@ export default (router: expres.Router) => {
   router.get("/users", isAuthenticated,getAllUsers);
   router.delete("/users/:id",isAuthenticated,isOwner,deletedUser);
   router.patch("/users/:id",isAuthenticated,isOwner,updateUser);
-
 };
 
 
